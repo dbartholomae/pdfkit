@@ -1,7 +1,11 @@
 import assert from 'node:assert/strict';
 import { createRequire } from 'node:module';
 import { fileURLToPath } from 'node:url';
-import PDFDocument, { LineWrapper, registerFile } from 'pdfkit';
+import PDFDocument, {
+  LineWrapper,
+  registerStdFonts,
+  registerFile,
+} from 'pdfkit';
 import { toBytes } from 'pdfkit/output';
 
 const require = createRequire(import.meta.url);
@@ -15,8 +19,10 @@ assert.equal(
 assert.equal(typeof PDFDocument, 'function');
 assert.equal(PDFDocument.name, 'PDFDocument');
 assert.equal(typeof LineWrapper, 'function');
+assert.equal(typeof registerStdFonts, 'function');
 assert.equal(typeof registerFile, 'function');
 assert.equal(PDFDocument.LineWrapper, undefined);
+assert.equal(PDFDocument.registerStdFonts, undefined);
 assert.equal(PDFDocument.registerFile, undefined);
 
 const loadedStandardFontModules = () =>
