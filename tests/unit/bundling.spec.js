@@ -27,9 +27,9 @@ const render = (document) =>
   });
 
 // Bundles the Node build the way an application bundler does: every module of
-// pdfkit folded into one file that lives in a package of its own, so neither
-// the `#standard-fonts/*` mapping nor the `data/` directory of the pdfkit
-// package are reachable from it. The bundle sits under node_modules so bare
+// pdfkit folded into one file that lives in a directory of its own, so neither
+// the `standard-fonts/` nor the `data/` directory of the pdfkit package sits
+// next to it. The bundle sits under node_modules so bare
 // imports of pdfkit's dependencies still resolve and Vitest leaves it to Node.
 describe('bundled node build', () => {
   let bundleDir;
